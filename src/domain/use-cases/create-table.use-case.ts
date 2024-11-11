@@ -26,8 +26,10 @@ export class CreateTable implements CreateTableUseCase {
          * *and here is where we are gonna execute the use case
          */
         let contentFile = '';
-        for (let i = 0; i <= limit; i++ ){
-            contentFile += `${ base } x ${ i } = ${ base * i }\n`;
+        for (let i = 1; i <= limit; i++ ){
+            contentFile += `${ base } x ${ i } = ${ base * i }`;
+
+            if ( i < limit ) contentFile +='\n';
         }
         return contentFile;
     }

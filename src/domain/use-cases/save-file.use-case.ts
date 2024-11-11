@@ -26,7 +26,7 @@ export class SaveFile implements SaveFileUseCase {
             // console.log('File created!');
             return true;
         } catch (error) {
-            console.error(error);
+            // console.error(error); //windston
             return false;
         }
 

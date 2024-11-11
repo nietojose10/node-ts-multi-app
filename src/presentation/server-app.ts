@@ -1,17 +1,18 @@
 import { CreateTable } from '../domain/use-cases/create-table.use-case';
 import { SaveFile } from '../domain/use-cases/save-file.use-case';
 
-interface RunOptions {
+export interface RunOptions {
     base: number;
     limit: number;
     showTable: boolean;
-    fileName?: string;
-    fileDestionation?: string;
+    fileName: string;
+    fileDestination: string;
 }
 
 export class ServerApp {
 
-    static run( { base, limit, showTable, fileName, fileDestionation }: RunOptions ) {
+    //*As this method is static remember there is no need to create an instance to execute this method
+    static run( { base, limit, showTable, fileName, fileDestination }: RunOptions ) {
         console.log('Server running...');
         
         //*In CreateTable we could inject some dependencies as parameters in case we would have.
@@ -19,7 +20,7 @@ export class ServerApp {
         const wasCreated = new SaveFile()
         .execute({ 
             fileContent: table,
-            fileDestination: fileDestionation,
+            fileDestination: fileDestination,
             fileName: fileName
         });
 
